@@ -1,0 +1,32 @@
+---
+- name: Playbook with Tags
+  hosts: all
+  become : yes
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+      tags: 
+        - apache
+
+    - name: Start Apache
+      service:
+        name: httpd
+        state: started
+      tags: 
+        - apache
+
+    - name: Install MySQL
+      yum:
+        name: mysql-server
+        state: present
+      tags: 
+        - database
+
+    - name: Start MySQL
+      service:
+        name: mysqld
+        state: started
+      tags: 
+        - database

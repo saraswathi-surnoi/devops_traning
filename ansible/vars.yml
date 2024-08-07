@@ -1,0 +1,6 @@
+---
+vars:
+  web_package: httpd
+  web_service: httpd
+  source_file: index.html
+  dest_file: /var/www/html/index.html

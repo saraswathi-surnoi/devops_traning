@@ -1,0 +1,7 @@
+- hosts: all
+  vars_files:
+    - secrets.yml
+  tasks:
+    - name: Print the secret
+      debug:
+        msg: "The secret password is {{ secret_password }}"
