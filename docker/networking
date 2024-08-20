@@ -3,6 +3,8 @@ networking:
 - The netwoking has a isolation also
 - Networking allows containers to communicate with each other and with the host system. 
 - Containers run isolated from the host system and need a way to communicate with each other and with the host system.
+---------------------
+
 - the list of networks 
 - docker network ls
 Bridge Networking:

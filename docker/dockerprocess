@@ -1,20 +1,20 @@
-create one directory -->mkdir myapp --> cd myapp --> create on file and write the conent on it --> vim dockerfile--> write the nginx baseimage or write the install of nginx--> from the dockerfile we get docker image 
-After creating of docker image check the docker info if the docker deamon is running or not 
+- create one directory -->mkdir myapp --> cd myapp --> create on file and write the conent on it --> vim dockerfile--> write the nginx baseimage or write the install of nginx--> from the dockerfile we get docker image 
+- After creating of docker image check the docker info if the docker deamon is running or not 
 if it is not running then start it using the command 
--sudo service docker start 
--then it started so we have to build a image from the dockerfile --
+- sudo service docker start 
+- then it started so we have to build a image from the dockerfile --
 - docker build -t (tag) or flag directoryname/myapp .
 - check the images using --> docker images
 - After the image created we have to run that image and we craete a container 
 - docker run -d -p 8080:80 myapp
--Here we have to add the tags for that 
--docker tag (name of ur source) dockerhub username/(desination)
--docker tag myapp sarusparks/myapp:latest
--After the docker container created check it 
--docker ps -a 
+- Here we have to add the tags for that 
+- docker tag (name of ur source) dockerhub username/(desination)
+- docker tag myapp sarusparks/myapp:latest
+- After the docker container created check it 
+- docker ps -a 
 then push it into the docker hub or registry 
 - create a dockerhub 
--Then give the docker login --> username --> password --> after login to docker hub push the container or image to dockerhub
+- Then give the docker login --> username --> password --> after login to docker hub push the container or image to dockerhub
 - docker push sarusparks/myapp:latest
 - Then check the docker image is pushed successfully or not
-- 
+-

@@ -45,5 +45,5 @@ we will know entire details of container like ipaddress and mounts(source,dstnat
 -docker containr stop <continer>
  
 -docker volume rm <volume name>
-to delete volume fist stop the container 
+to delete volume first stop the container 
 

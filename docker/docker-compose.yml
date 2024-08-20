@@ -1,0 +1,21 @@
+version '3.8'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - webdata:/var/lib/web
+    networks:
+      - my_network
+
+  database:
+    image: mysql
+    environtment:
+      MYSQL_ROOT_PASSWORD: examplepassword
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - my_network
+    
+     

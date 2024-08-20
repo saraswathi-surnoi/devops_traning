@@ -1,0 +1,21 @@
+what is docker compose?
+- The docker compose is a tool to manage the multi-containers as a single service.
+How to create a docker compose file ?
+- it is in the yaml format which understand by the humans
+To run the docker-compose file 
+- 'docker-compose up'
+to remove all the containers
+- 'docker-compose down'
+- docker-compose build
+- docker-compose logs
+- docker-compose ps
+- docker-compose version
+- docker-compose port
+- docker-compose top
+- docker-compose kill
+- docker-compose pause
+- docker-compose unpause
+- docker-compose rm
+- docker-compose exec
+- docker-compose run
+- docker-compose pull
