@@ -1,0 +1,69 @@
+what is docker swarm?
+- the docker swarm is a orchestration tool.It turns a group of docker engines into single,virtual docker engine.
+Components of docker swarm:
+- nodes
+- services
+- tasks
+- swarm
+- overlaynetwork
+- auto load-balancing
+Nodes:
+- A node is an individual machine in the Docker Swarm cluster. It can be either a physical server or a virtual machine running Docker.
+- there are two types of nodes
+- managed node
+- worker node
+Managed node:
+- The managed node means it is responsible to managing the docker swarm and its tasks.It makes decisions on container scheduling, monitoring, and scaling. A Swarm can have multiple manager nodes, but one of them acts as the leader, coordinating the other managers.
+Worker Node: 
+- These nodes execute the tasks assigned to them by the manager nodes. They run the containers but don’t make any decisions about the Swarm.
+Services:
+- The description of the task what you are going to do is defined in the task.
+Tasks:
+- A task is a single container running on a node. Each service consists of one or more tasks. Docker Swarm distributes these tasks across the nodes in the cluster.
+Swarm:
+- The Swarm is the collective group of all the nodes (both manager and worker nodes) working together to run services. When you initiate a Docker Swarm, you're effectively creating a cluster.
+Overlay-Network:
+- This is a software-defined network that enables communication between containers on different nodes as if they were on the same machine. It abstracts the underlying physical network, making the distributed architecture seamless to the containers.
+Auto-loadbalancing:
+- Docker Swarm has built-in load balancing, it automatically distributes incoming requests across the running containers of a service. This ensures that no single container gets overwhelmed with too much traffic.
+------------------
+
+First we have to intiate docker swarm 
+- docker swarm init --advertise-addr <MANAGER-IP> here when we intiate it will create a cluster.(manager node)
+- Adds a node to an existing Swarm as a worker or manager.
+- docker swarm join --token <TOKEN> <MANAGER-IP>:2377
+For leave the nodes:
+- docker swarm leave --force
+Update the docker swarm configuration 
+- docker swarm update --autolock=true
+Creates a new service in swarm
+- docker service create --name web --replicas 5 -p 80:80 nginx
+List the docker services
+- docker service ls
+To know the details of the service:
+- docker service inspect (name of service)
+Remove a service from swarm:
+- docker service rm (name of service)
+Update the service in swarm:
+- docker service update --image nginx:latest (name of service)
+---------------------------
+
+Network and Node management:
+- docker network ls
+- docker node ls
+- docker node inspect (name of node)
+- docker node update --availability drain (name of node or node id)
+- docker node rm
+- docker info (it will give the detail about the swarm and docker)
+--------------------------
+
+Stack management:
+- docker stack deploy --> docker stack deploy --compose-file docker-compose.yml my_stack
+- docker stack ls --> list the stacks
+- docker stack services --> docker stack services (name of stack)
+- docker stack ps --> docker stack ps (name of stack) --> it will give the tasks in stack
+- docker remove the stacks --> docker stack rm (name of stack)
+
+
+
+

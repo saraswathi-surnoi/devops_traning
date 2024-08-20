@@ -17,4 +17,7 @@ RUN pip install -r requirements.txt
 EXPOSE 8080
 
 # 7. Define the startup command
-CMD ["python3", "app.py"]
+CMD ["python3"]
+
+#8. define the app of python
+ENTRYPOINT ["app.py"]
