@@ -1,5 +1,23 @@
- handlers:
-    - name: Restart web server
-      service:
-        name: httpd
-        state: restarted
+---
+ - name: first playbook
+   hosts: all
+   become: yes
+   tasks: 
+       - name: install httpd
+         yum:
+             name: httpd
+             state: present
+       - name: start httpd
+         service:
+              name: httpd
+              state: started
+       - name: copying the files
+         copy:
+               src: index.html
+               dest: /var/www/index.html
+         notify: Restart web server
+   handlers:
+       - name: Restart web server
+         service:
+               name: httpd
+               state: restarted
