@@ -1,0 +1,49 @@
+what are volumes 
+how to create /list/delete volumes
+how to attach volumes to containers
+how to share volume among containers
+what are bind mounts
+
+use of volumes:
+- Decoupling container from storage 
+- share volume (storage/data) among different containers
+- Attach voulume to container
+- On deleting container volume does not delete
+volumes:
+- Volumes are managed, created, mounted and deleted using the Docker API. However, Volumes are more flexible than bind mounts, as they can be managed and backed up separately from the host file system, and can be moved between containers and hosts.
+
+bind mounts:
+- In a nutshell, Bind Directory on a host as a Mount are appropriate for simple use cases where you need to mount a directory from the host file system into a container, while volumes are better suited for more complex use cases where you need more control over the data being persisted in the container.
+
+-docker volume ls
+gives the list of volumes running
+ 
+-docker volume create <volume name> ex:testvolume
+creates a volume, Logical folder is created in this particular host. This particular volume can be used by one or multiple containers
+ 
+-docker volume inspect <volume name> ex:testvolume
+gives all the details about particular volume like created time, location path, name, driver: local or any other
+ 
+-docker volume rm <volume name1> <volume name2> 
+deletes the volume
+ 
+-docker images | head -5
+ 
+-vim Dockerfile
+FROM ubuntu
+ 
+-docker build
+ 
+-docker volume create <volume name>
+ 
+-docker run -d --mount source=<volumename>,target=/app <imagename>
+this container will have mount i.e disc or volume
+ 
+-docker inspect <name of the container>
+we will know entire details of container like ipaddress and mounts(source,dstnation) etc
+ 
+-docker containr stop <continer>
+ 
+-docker volume rm <volume name>
+to delete volume fist stop the container 
+

@@ -1,16 +1,22 @@
 ---
-- name: Install and start Nginx
+- name: First Playbook
   hosts: all
   become: yes
   tasks:
-    - name:install nginx
+    - name: Install httpd
       yum:
-        name: nginx
+        name: httpd
         state: present
-        update_cache: yes
 
-    - name: nginx start
+    - name: Start httpd
       service:
-        name: nginx
+        name: httpd
         state: started
-        enabled: yes
+
+    - name: Copying the files
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+      notify: Restart web server
+
+  

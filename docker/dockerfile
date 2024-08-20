@@ -1,0 +1,20 @@
+# 1. Start with a base image
+FROM python:3.8-slim-buster
+
+# 2. Set environment variables (optional)
+ENV APP_HOME /app
+
+# 3. Create and set the working directory
+WORKDIR $APP_HOME
+
+# 4. Copy application files into the container
+COPY . .
+
+# 5. Install dependencies
+RUN pip install -r requirements.txt
+
+# 6. Expose the port the app runs on
+EXPOSE 8080
+
+# 7. Define the startup command
+CMD ["python3", "app.py"]

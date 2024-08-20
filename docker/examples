@@ -1,0 +1,3 @@
+Imagine you have a favorite app that you love using on your computer. But when you try to share that app with a friend, it doesn't work on their computer because they have different settings or a different operating system. This can be frustrating!
+
+Docker is like a magic box that you can put your app into, along with everything it needs to run (like the operating system, libraries, and dependencies). Once your app is inside this magic box, you can give the box to your friend, and it will work on their computer exactly the same way it works on yours, no matter what kind of computer they have.

@@ -1,0 +1,67 @@
+-Create the Dockerfile:
+vim Dockerfile
+--------------------
+
+-Build the Docker Image
+docker build -t name:tag .
+docker build -t image1:latest
+------------------------
+
+-Log In to Docker Registry
+docker login
+----------------------
+
+-Tag the Image
+docker tag name:tag myusername/name:tag
+docker tag image1:latest sahajagarrepally/image1:latest
+----------------------
+
+-Push the Image
+docker push myusername/name:tag
+docker push myusername/image1:latest
+---------------------------
+
+-Run the image (8080 for host level, 80 container level)
+docker run -d --name containername -p 8080:80 myusername/name:tag
+docker run -d --name container1 -p 8080:80 sahajagarrepally/image1:latest
+----------------------------
+
+-Pull docker image from central registry
+docker pull <image-name>:<tag>
+docker pull image1:latest
+-----------------------------
+
+-Display docker images
+ docker image
+----------------------------
+
+-displays docker running containers
+docker ps
+-displays all docker containers
+docker ps -a
+-----------------------------
+
+-Remove docker image
+docker rmi <image-id>
+-remove docker container
+docker rm <container-id>
+------------------------------
+
+-shows container logs
+docker logs <container-id>
+-------------------------------
+
+-for executing commands in a running container
+docker exec -it <container-id> /bin/bash
+------------------------------
+
+-start the container
+docker start containerid
+-stop the container
+docker stop containerid
+-------------------------------
+
+-list the containers according to status
+docker ps -a --filter "status=created"
+docker ps -a --filter "status=paused"
+docker ps -a --filter "status=dead"

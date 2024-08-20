@@ -1,6 +1,7 @@
 ---
-vars:
-  web_package: httpd
-  web_service: httpd
-  source_file: index.html
-  dest_file: /var/www/html/index.html
+nginx_user: www-data
+nginx_worker_processes: auto
+nginx_worker_connections: 768
+nginx_default_server: default_server
+nginx_root: /var/www/html
+nginx_index: index.html index.htm

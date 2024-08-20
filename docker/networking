@@ -1,0 +1,17 @@
+networking:
+- The networking is used to talk the two containers with each other.
+- The netwoking has a isolation also
+- Networking allows containers to communicate with each other and with the host system. 
+- Containers run isolated from the host system and need a way to communicate with each other and with the host system.
+- the list of networks 
+- docker network ls
+Bridge Networking:
+- The default network mode in Docker.
+- It creates a private network between the host and containers, allowing containers to communicate with
+ each other and with the host system.
+- If you want to secure your containers and isolate them from the default bridge network you can also 
+create your own bridge network.
+To create a network we use command 
+- docker network create -d bridge my_bridge
+This new network can be attached to the containers, when you run these containers.
+- docker run -d --net=my_bridge --name db training/postgres.

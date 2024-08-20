@@ -1,0 +1,19 @@
+#from the base image 
+FROM ubuntu:latest
+#run the commands and execte that by using run 
+RUN yum update -y && yum install ubuntu
+RUN mkdir /app
+#create a envirotment variables
+ENV app=key
+#create a workdirectory for ur container
+WORKDIR /app
+# copy a local files or directories to a file
+COPY ./ /app
+#we have expose the ports to run in the contianer
+EXPOSE 5000
+#add files from remote locations 
+ADD <url>
+#ddefines the command to execute
+CMD [ "ubuntu"]
+#define the commands and start the service
+ENTRYPOINT ["start"]

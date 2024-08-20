@@ -1,0 +1,25 @@
+# Use the official Amazon Linux 2 base image
+FROM amazonlinux:2
+
+# Update the package manager and install required packages
+RUN yum update -y && \
+    yum install -y java-17-openjdk-devel wget git
+
+# Install Jenkins
+RUN wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo && \
+    rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key && \
+    yum install -y jenkins
+
+# Install Docker (if you need Jenkins to run Docker commands)
+RUN amazon-linux-extras install docker -y && \
+    yum install -y docker
+
+# Enable and start the Docker service
+RUN systemctl enable docker
+
+# Expose ports for Jenkins
+EXPOSE 8080 50000
+
+# Start Jenkins when the container starts
+CMD ["bash", "-c", "service docker start && service jenkins start && tail -f /var/log/jenkins/jenkins.log"]
